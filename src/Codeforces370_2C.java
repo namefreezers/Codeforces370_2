@@ -6,36 +6,32 @@ public class Codeforces370_2C {
 		Scanner in = new Scanner(System.in);
 		String s[] = in.nextLine().split(" ");
 		in.close();
-		int f = Integer.parseInt(s[0]);
-		int l = Integer.parseInt(s[1]);
-		int sm = f, med = f, lar = f;
+		int first = Integer.parseInt(s[0]);
+		int last = Integer.parseInt(s[1]);
+		int sm = last, med = last, lar = last;
 		int temp;
 		int count = 0;
-		while(sm + l + 1< med && sm<= l+l+1){
+		while (lar < first) {
 			count++;
-			temp = Math.max((int) Math.round((double)sm/3), med+1-sm);
-			lar = med;
-			if(sm>temp)
-			{med = sm;
-			sm = temp;}
-			else{
-				med = temp;
-			}
+			temp = med+lar-1;
+			sm= med;
+			med = lar;
+			lar = temp;
 		}
-		if(lar != l){
+		if (lar < first) {
 			count++;
-			lar = l;
+			lar = first;
 		}
-		if(med != l){
+		if (med < first) {
 			count++;
-			med = l;
+			med = first;
 		}
-		if(sm != l){
+		if (sm < first) {
 			count++;
-			sm = l;
+			sm = first;
 		}
 		System.out.println(count);
-		
+
 	}
 
 }
